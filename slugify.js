@@ -9,4 +9,7 @@ function slugify(text) {
     .replace(/\-\-+/g, '-');        // Replace multiple - with single -
 }
 
+
+// Convert String to URL
+
 // ref : https://gist.github.com/codeguy/6684588
