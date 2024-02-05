@@ -1,14 +1,17 @@
 Server migrations projects
 
 Introduction
-    Roojai.com running on Mirisoft Azure app service.
-    We've 2 web App service at Singapore & Hong Kong. Server specification is Windows server (OS) and IIS web server envelopment include Apache, PHP, MySQL.
-    Roojai's website development by Wordpress CMS system. It's built on PHP language, MySQL database and Javascript.
+    Roojai.com running on Microsoft Azure app service.
+    We've 1 web App service for UAT website and 2 web Apps service in Singapore & Hong Kong for Production website . Server specification is Windows server (OS) and IIS web server envelopment include Apache, PHP, MySQL.
+    Roojai's website development by WordPress CMS system. It's built on PHP language, MySQL database and JavaScript.
 
-Why we do.
-    In the 2024 the IIS web server stop support the PHP new version 8 or greater. but Wordpress the new version of Wordpress server requirements recommended PHP version 8.x for the best security and performance.
+Why we do
+    The App Service (old) is extended support for PHP 7.4 will end on November 28, 2022. After this date, web applications will continue to run, however any application hosted in App Service targeting PHP 7.4 will be out of support and at risk of security that remain unpatched.
 
-    WordPress is open source software. Supporting the any an idea and the freedoms that come with open source, is a large community of people collaborating on and contributing to this project. 
+    In 2024,The next version of PHP is PHP 8.0. Official support for PHP 8 will only be available on Linux, as a result of this App Service will only support PHP 8 on Apps Service Linux instances.
+    
+    Wordpress new version server requirements recommended PHP version 8.x for the best security and performance.
+
     It’s recommended specification host supports:
     1. Apache or Nginx is recommended as the most robust and featureful server for running WordPress.
     2. PHP version minimum 7.4 or greater for Wordpress latest version, compatible with any plugins, better security and performance.
@@ -17,37 +20,43 @@ Why we do.
     "We need to change for the feature."
 
 New server
-    1. Linux Operating system : Linux open source operating system (OS) like Windows, iOS, or mac OSX. But Linux is also the leading OS on servers such as web services and databases, and very popular on mainframe computers, enterprise-level data centers workload environments and including clouds server. These include cost-efficiency, powerful community support, stability with lower risk of downtime, high performance in managing demanding workloads, high security, and customization flexibility in terms of server implementation and operation.
+    1. Linux Operating system : Linux open source operating system (OS) like Windows, iOS, or mac OSX. But Linux is also the leading OS on servers such as web services and databases, and very popular on enterprise-level workload environments and including cloud server. These include cost-efficiency, powerful community support, stability with lower risk of downtime, high performance in managing demanding workloads, high security, and customization flexibility in terms of server implementation and operation.
     
     2. Nginx Web server : Nginx [engine x] is an open source web server that can also used as a Reverse proxy, HTTP cache, support HTTP/2, Asynchronous work and load balancer. Nginx is built to offer low memory usage and high concurrency. it's the most popular web server for high-traffic websites. It's optimization problem regarding the performance issue of handling concurrent many connections. Nginx is asynchronous work, each request can be executed by the worker concurrently without blocking other requests.
 
-    3. High-profile companies using Linux Operating system add Nginx Web server in some of part of these companies include Autodesk, Salesforce, GitLab, Microsoft, IBM, Google, Adobe, VMWare, Xerox, LinkedIn, Cisco, Facebook, Twitter, Apple, Intel, and many more.
+    3. WordPress is an open source Content Management System (CMS) used by over 40% of the web to create websites, blogs, and other applications in the world.
 
-    Open source licenses are licenses that comply with the Open Source Definition, they allow software to be freely used, modified, and shared.
-    Open source is source code that is made freely available for possible modification and redistribution. Products include permission to use the source code, design documents, or content of the product.
-    Open source software is developed in a decentralized and collaborative way, relying on peer review and community production. Open source software is often cheaper, more flexible, and has more longevity than its proprietary peers because it is developed by communities.
+    4. Open source licenses they allow software to be freely used, modified, and shared. the source code that is made freely available for possible modification and redistribution. Products include permission to use the source code, design documents, or content of the product. developed in a decentralized and collaborative way, relying on peer review and community production. Open source software is often cheaper and more flexible.
     
-New web server specification
-    - Mirisoft Azure Web App service
-    - Operating System : Linux
-    - Webser server : Nginx 1.24.0
-    - PHP version 8.2.9
-    - Database MySQL
-    - WordPress 6.4.3
-    - Location at Singapore & Hong Kong.
+    5. High-profile companies using Linux Operating system add Nginx Web server in some of part of they work include Autodesk, Salesforce, GitLab, Microsoft, IBM, Google, Adobe, VMWare, Xerox, LinkedIn, Cisco, Facebook, Twitter, Apple, Intel, and many more.
+
+    6. New server specification
+        - Microsoft Azure Web App service tool for server management.
+        - Operating System : Linux
+        - Webser server : Nginx 1.24.0
+        - PHP version 8.2.9
+        - Database MySQL 5.7.43
+        - WordPress 6.4.3
+        - Location at Singapore & Hong Kong.
+
+Compare server
+    
 
 What We do? Workflow to server migrations.
-    - Infastructure team create App Service plan and setup server envelopment. We have 2 app servers at Hong kong & Sigapore for working 50/50.
+    - Infastructure team create App Service plan and setup server envelopment. We have 1 app server for UAT website and 2 app servers at Hong kong & Sigapore for Production website working 50/50.
     - Backup and prepare data is content, photo and documents from old server.
-    - Migrations data to the new server by the migration tool.
+    - First, Migrations data to the new server UAT for test the migration tool and error.
+    - Check and test add/update/delete front-end and backend for everythink work properly and compare with the old server.
+    - Update WordPress core system and plugins to latest version.
+    - Second, Migrations data to the new server Production.
     - Check and test add/update/delete front-end and backend for everythink work properly and compare with the old server.
     - Update WordPress core system and plugins to latest version.
     - Configure and manage custom domains assigned "roojai.com" to the new Linux server.
     - Waiting for DNS update.
-    - After migrations completed we still keep the IIS server(old) to March 2024 for backup if no problem on the new server after that we'll close it.
+    - After migrations completed we still keep the IIS server(old) to March 2024 for backup if we has the problem with the new server after that we'll close it.
 
 Operation problems & solutions
-    - Our web server running on Mirisoft Azure app service, the default domain of both app are hk-prd-rjcmsv2-lnx.azurewebsites.net and sin-prd-rjcmsv2-lnx.azurewebsites.net
+    - Our web server running on Microsoft Azure app service, the default domain of both app are hk-prd-rjcmsv2-lnx.azurewebsites.net and sin-prd-rjcmsv2-lnx.azurewebsites.net
     - The default domain is most problems when server migrations because we use the default domain for back-end and custom domains "roojai.com" for front-end.
     - Configure and manage custom domains assigned "roojai.com" to your both apps for public customer.
     - Migration tool added the default domain to many link url in content pages. we've find and replaced it all by "roojai.com".
@@ -60,8 +69,8 @@ Migrations completed
     - Website backend faster
     - Compatable and support plugins more than one
     - Server easy setup and management.
-    - Many knowledge and big community using Linux server Nginx with Wordpress easy to find solution when we have problem.
+    - Many knowledge and powerful community support using Linux server Nginx with Wordpress easy to find solution when we have problem.
     - Support more services, library and new technology for website.
     - No effect to customer.
     - Ready to update and customize the new theme and function in feature.
-    - Save Cost: Mirisoft Azure app service charge price of IIS server it's double price of Linux server because Linux & Nginx is an open-source software, the most of technology we used open source software is cheaper, more flexible, and has more longevity than before.
+    - Save Cost: Microsoft Azure app service charge price of IIS server it's double price of Linux server because Linux & Nginx is an open-source software, the most of technology we used open source software is cheaper, more flexible, and has more longevity than before.
