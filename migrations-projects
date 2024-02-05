@@ -44,7 +44,7 @@ What We do? Workflow to server migrations.
     - Update WordPress core system and plugins to latest version.
     - Configure and manage custom domains assigned "roojai.com" to the new Linux server.
     - Waiting for DNS update.
-    - After migrations completed we still keep the IIS server(old) to March 2024 for backup if we has the problem with the new server after that we'll close it.
+    - After migrations completed we still keep the IIS server(old) to March 2024 for backup if no problem on the new server after that we'll close it.
 
 Operation problems & solutions
     - Our web server running on Mirisoft Azure app service, the default domain of both app are hk-prd-rjcmsv2-lnx.azurewebsites.net and sin-prd-rjcmsv2-lnx.azurewebsites.net
