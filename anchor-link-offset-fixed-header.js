@@ -28,3 +28,6 @@
       }); 
     }); 
   });
+
+// OR a, button tag
+<a onclick="document.getElementById('id-target').scrollIntoView({ block: 'center' });">Click</a>
