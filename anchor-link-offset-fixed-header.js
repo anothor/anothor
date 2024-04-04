@@ -30,4 +30,5 @@
   });
 
 // OR a, button tag
+// https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
 <a onclick="document.getElementById('id-target').scrollIntoView({ block: 'center' });">Click</a>
