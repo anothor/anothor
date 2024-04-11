@@ -1,12 +1,16 @@
 // Offsetting an anchor to adjust for fixed header
 //ref - https://www.geeksforgeeks.org/offsetting-an-anchor-to-adjust-for-fixed-header/
 
+ // attribute selector scope
+// const container = document.querySelector("#container");
+// const matches = container.querySelectorAll("#id > .class > p");
+
 // Get the header element 
   var navbar = document.querySelector('nav'); 
 
   // Get the height of the navbar 
   var navbarHeight = navbar.offsetHeight; 
-  document.querySelectorAll('a[href^="#"]') 
+  document.querySelectorAll('a[href^="#"]:not([href="#"]):not([href="#0"])') 
   .forEach(function (anchor) { 
     anchor.addEventListener('click',  
     function (event) { 
