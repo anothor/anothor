@@ -15,6 +15,12 @@ function eventHandler(e) {
     [].forEach.call(document.querySelectorAll('ul li'), function(a){
         a.classList[a == e.target ? 'add' : 'remove']('active');
     });
+
+-- or
+
+if (a !== e.target && a.getAttribute("aria-expanded") === "true") {
+					a.setAttribute("aria-expanded", 'false');
+				}
 }
 
 UL.addEventListener('click', function (e) {
