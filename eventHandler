@@ -1,0 +1,22 @@
+-- Html DOM
+-- <ul>
+--     <li>list element</li>
+--      <li>list element</li>
+--      <li>list element</li>
+--      <li>list element</li>
+--      <li>list element</li>
+--      <li>list element</li>
+-- </ul>
+
+var UL = document.querySelector('ul');
+
+function eventHandler(e) {
+    var thiz = e.target;
+    [].forEach.call(document.querySelectorAll('ul li'), function(a){
+        a.classList[a == e.target ? 'add' : 'remove']('active');
+    });
+}
+
+UL.addEventListener('click', function (e) {
+    eventHandler(e);
+});
