@@ -9,3 +9,7 @@ if (!offcanvasInstance) {
 
 // To close the offcanvas programmatically
 offcanvasInstance.hide();
+
+// bootstrap.Offcanvas.getInstance(element) is used to get an instance of the offcanvas component.
+// If no instance is found, you can create one using new bootstrap.Offcanvas(element).
+// The .hide() method is then called to close the offcanvas.
